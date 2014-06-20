@@ -46,5 +46,18 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>FacebookAppID</key>
+	<string>1436313103299676</string>
+	<key>FacebookDisplayName</key>
+	<string>ChatUp</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb1436313103299676</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>
