@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0D6359C65A404059990D669A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 900EDF4CF68649368A50C53B /* libPods.a */; };
+		BA008156197DE35E002AC4E4 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = BA008155197DE35E002AC4E4 /* Constants.m */; };
 		BA6A5B9E1953AF2C0047C967 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA6A5B9D1953AF2C0047C967 /* Foundation.framework */; };
 		BA6A5BA01953AF2C0047C967 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA6A5B9F1953AF2C0047C967 /* CoreGraphics.framework */; };
 		BA6A5BA21953AF2C0047C967 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA6A5BA11953AF2C0047C967 /* UIKit.framework */; };
@@ -39,6 +40,8 @@
 /* Begin PBXFileReference section */
 		71DDC443264441168B650CC9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		900EDF4CF68649368A50C53B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA008154197DE35E002AC4E4 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		BA008155197DE35E002AC4E4 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		BA6A5B9A1953AF2C0047C967 /* ChatUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA6A5B9D1953AF2C0047C967 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BA6A5B9F1953AF2C0047C967 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -145,6 +148,8 @@
 				BA6A5BA61953AF2C0047C967 /* InfoPlist.strings */,
 				BA6A5BA91953AF2C0047C967 /* main.m */,
 				BA6A5BAB1953AF2C0047C967 /* ChatUp-Prefix.pch */,
+				BA008154197DE35E002AC4E4 /* Constants.h */,
+				BA008155197DE35E002AC4E4 /* Constants.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -313,6 +318,7 @@
 				BA6A5BB41953AF2C0047C967 /* FirstViewController.m in Sources */,
 				BA6A5BAA1953AF2C0047C967 /* main.m in Sources */,
 				BA6A5BD71953B0660047C967 /* LoginViewController.m in Sources */,
+				BA008156197DE35E002AC4E4 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

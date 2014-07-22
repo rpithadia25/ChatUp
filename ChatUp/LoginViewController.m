@@ -68,6 +68,7 @@
                 [alertView show];
             }
         }else{
+            [self updateUserInformation];
             [self performSegueWithIdentifier:@"loginToTabBarSegue" sender:self];
         }
         
@@ -75,5 +76,40 @@
     
 }
 
+#pragma mark - Helper method
+
+- (void) updateUserInformation{
+    FBRequest *request = [FBRequest requestForMe];
+    [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        if(!error){
+            NSDictionary *userDictionary = (NSDictionary *)result;
+            NSMutableDictionary *userProfile = [[NSMutableDictionary alloc]initWithCapacity:8];
+            if (userDictionary[@"name"]) {
+                userProfile[kCCUserProfileNameKey] = userDictionary[@"name"];
+            }
+            if (userDictionary[@"first_name"]) {
+                userProfile[kCCUserProfileNameKey] = userDictionary[@"first_name"];
+            }
+            if (userDictionary[@"location"][@"name"]) {
+                userProfile[kCCUserProfileLocationKey] = userDictionary[@"location"][@"name"];
+            }
+            if (userDictionary[@"gender"]) {
+                userProfile[kCCUserProfileGenderKey] = userDictionary[@"gender"];
+            }
+            if (userDictionary[@"birthday"]) {
+                userProfile[kCCUserProfileBirthdayKey] = userDictionary[@"birthday"];
+            }
+            if (userDictionary[@"interested_in"]) {
+                userProfile[kCCUserProfileInterestedInKey] = userDictionary[@"interested_in"];
+            }
+            
+            [[PFUser currentUser] setObject:userProfile forKey:kCCUserProfileKey];
+            [[PFUser currentUser] saveInBackground];
+        }
+        else{
+            NSLog(@"Error in Facebook request %@", error);
+        }
+    }];
+}
 
 @end
