@@ -146,4 +146,36 @@
     }];
 }
 
+-(void)saveDislike
+{
+    PFObject *dislikeActivity = [PFObject objectWithClassName:@"Activity"];
+    [dislikeActivity setObject:@"dislike" forKey:@"type"];
+    [dislikeActivity setObject:[PFUser currentUser] forKey:@"fromUser"];
+    [dislikeActivity setObject:[self.photo objectForKey:@"user"] forKey:@"toUser"];
+    [dislikeActivity setObject:self.photo forKey:@"photo"];
+    [dislikeActivity saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        self.isDislikedByCurrentUser = YES;
+        self.isLikedByCurrentUser = NO;
+        [self.activities addObject:dislikeActivity];
+        [self setupNextPhoto];
+    }];
+}
+
+-(void)checkLike
+{
+    if (self.isLikedByCurrentUser) {
+        [self setupNextPhoto];
+        return;
+    }else if(self.isDislikedByCurrentUser){
+        for (PFObject *activity in self.activities) {
+            [activity deleteInBackground];
+        }
+        [self.activities removeLastObject];
+        [self saveLike];
+    }
+    else{
+        [self saveLike];
+    }
+}
+
 @end
