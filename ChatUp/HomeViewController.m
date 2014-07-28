@@ -178,4 +178,20 @@
     }
 }
 
+-(void)checkDislike
+{
+    if (self.isDislikedByCurrentUser) {
+        [self setupNextPhoto];
+        return;
+    }else if (self.isLikedByCurrentUser){
+        for (PFObject *activity in self.activities) {
+            [activity deleteInBackground];
+        }
+        [self.activities removeLastObject];
+        [self saveDislike];
+    }else{
+        [self saveDislike];
+    }
+}
+
 @end
