@@ -103,7 +103,7 @@
                 userProfile[kCCUserProfileNameKey] = userDictionary[@"name"];
             }
             if (userDictionary[@"first_name"]) {
-                userProfile[kCCUserProfileNameKey] = userDictionary[@"first_name"];
+                userProfile[kCCUserProfileFirstNameKey] = userDictionary[@"first_name"];
             }
             if (userDictionary[@"location"][@"name"]) {
                 userProfile[kCCUserProfileLocationKey] = userDictionary[@"location"][@"name"];

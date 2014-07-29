@@ -49,7 +49,7 @@
     self.dislikeButton.enabled = NO;
     self.infoButton.enabled = NO;
     
-    self.currentPhotoIndex =  0;
+    self.currentPhotoIndex = 0;
     
     PFQuery *query = [PFQuery queryWithClassName:@"Photo"];
     [query includeKey:@"user"];
@@ -88,9 +88,11 @@
 }
 
 - (IBAction)likeButtonPressed:(UIButton *)sender {
+    [self checkLike];
 }
 
 - (IBAction)dislikeButtonPressed:(UIButton *)sender {
+    [self checkDislike];
 }
 
 - (IBAction)infoButtonPressed:(UIButton *)sender {
@@ -111,10 +113,47 @@
             else NSLog(@"%@",error);
             
         }];
+        
+        PFQuery *queryForLike = [PFQuery queryWithClassName:@"Activity"];
+        [queryForLike whereKey:@"type" equalTo:@"like"];
+        [queryForLike whereKey:@"photo" equalTo:self.photo];
+        [queryForLike whereKey:@"fromUser" equalTo:[PFUser currentUser]];
+        
+        PFQuery *queryForDislike = [PFQuery queryWithClassName:@"Activity"];
+        [queryForDislike whereKey:@"type" equalTo:@"dislike"];
+        [queryForDislike whereKey:@"photo" equalTo:self.photo];
+        [queryForDislike whereKey:@"fromUser" equalTo:[PFUser currentUser]];
+        
+        PFQuery *likeAndDislikeQuery = [PFQuery orQueryWithSubqueries:@[queryForLike, queryForDislike]];
+        [likeAndDislikeQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            
+            if(!error){
+                self.activities = [objects mutableCopy];
+                if ([self.activities count] == 0) {
+                    self.isLikedByCurrentUser = NO;
+                    self.isDislikedByCurrentUser = NO;
+                }else{
+                    PFObject *activity = self.activities[0];
+                    if ([activity[@"type"] isEqualToString:@"like"]) {
+                        self.isLikedByCurrentUser = YES;
+                        self.isDislikedByCurrentUser = NO;
+                    }else if([activity[@"type"]isEqualToString:@"dislike"]){
+                        self.isLikedByCurrentUser = NO;
+                        self.isDislikedByCurrentUser = YES;
+                    }else{
+                        //some other type of activity
+                    }
+                }
+                self.likeButton.enabled = YES;
+                self.dislikeButton.enabled = YES;
+            }
+        }];
+        
     }
 }
 
 -(void)updateView{
+    
     self.firstNameLabel.text = self.photo[@"user"][@"profile"][@"firstName"];
     self.ageLabel.text = [NSString stringWithFormat:@"%@", self.photo[@"user"][@"profile"][@"age"]];
     self.tagLineLabel.text = self.photo[@"user"][@"tagLine"];
