@@ -27,6 +27,8 @@
 		BA6A5BD71953B0660047C967 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA6A5BD61953B0660047C967 /* LoginViewController.m */; };
 		BA768AFD197E481000D7BA6E /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA768AFC197E481000D7BA6E /* EditProfileViewController.m */; };
 		BA768B01197E4ADB00D7BA6E /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA768B00197E4ADB00D7BA6E /* ProfileViewController.m */; };
+		BA94A07319885CB800657235 /* CCTestUser.m in Sources */ = {isa = PBXBuildFile; fileRef = BA94A07219885CB800657235 /* CCTestUser.m */; };
+		BA94A075198860EE00657235 /* profilePicture1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA94A074198860EE00657235 /* profilePicture1.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,9 @@
 		BA768AFC197E481000D7BA6E /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
 		BA768AFF197E4ADB00D7BA6E /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		BA768B00197E4ADB00D7BA6E /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		BA94A07119885CB800657235 /* CCTestUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTestUser.h; sourceTree = "<group>"; };
+		BA94A07219885CB800657235 /* CCTestUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTestUser.m; sourceTree = "<group>"; };
+		BA94A074198860EE00657235 /* profilePicture1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = profilePicture1.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +164,7 @@
 				BA768AFA197E47D700D7BA6E /* Edit Profile */,
 				BA768AFE197E4ABE00D7BA6E /* Profile */,
 				BA6A5BD91953B0860047C967 /* Login */,
+				BA94A07019885C7600657235 /* CreateParseUser */,
 				BA6A5BB81953AF2C0047C967 /* Images.xcassets */,
 				BA6A5BA41953AF2C0047C967 /* Supporting Files */,
 			);
@@ -168,6 +174,7 @@
 		BA6A5BA41953AF2C0047C967 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BA94A074198860EE00657235 /* profilePicture1.jpg */,
 				BA6A5BA51953AF2C0047C967 /* ChatUp-Info.plist */,
 				BA6A5BA61953AF2C0047C967 /* InfoPlist.strings */,
 				BA6A5BA91953AF2C0047C967 /* main.m */,
@@ -221,6 +228,15 @@
 				BA768B00197E4ADB00D7BA6E /* ProfileViewController.m */,
 			);
 			name = Profile;
+			sourceTree = "<group>";
+		};
+		BA94A07019885C7600657235 /* CreateParseUser */ = {
+			isa = PBXGroup;
+			children = (
+				BA94A07119885CB800657235 /* CCTestUser.h */,
+				BA94A07219885CB800657235 /* CCTestUser.m */,
+			);
+			name = CreateParseUser;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,6 +317,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA94A075198860EE00657235 /* profilePicture1.jpg in Resources */,
 				BA6A5BB91953AF2C0047C967 /* Images.xcassets in Resources */,
 				BA6A5BA81953AF2C0047C967 /* InfoPlist.strings in Resources */,
 				BA6A5BB11953AF2C0047C967 /* Main.storyboard in Resources */,
@@ -355,6 +372,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA94A07319885CB800657235 /* CCTestUser.m in Sources */,
 				BA6A5BAE1953AF2C0047C967 /* AppDelegate.m in Sources */,
 				BA6A5BAA1953AF2C0047C967 /* main.m in Sources */,
 				BA768B01197E4ADB00D7BA6E /* ProfileViewController.m in Sources */,

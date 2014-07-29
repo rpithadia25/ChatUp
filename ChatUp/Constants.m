@@ -11,6 +11,9 @@
 @implementation Constants
 
 #pragma mark - User Class
+
+NSString *const kCCUserTagLineKey               = @"tagLine";
+
 NSString *const kCCUserProfileKey               = @"profile";
 NSString *const kCCUserProfileNameKey           = @"name";
 NSString *const kCCUserProfileFirstNameKey      = @"firstName";
@@ -27,6 +30,16 @@ NSString *const kCCUserProfileRelationshipStatusKey = @"relationshipStatus";
 #pragma mark - Photo Class
 NSString *const kCCPhotoClassKey                = @"Photo";
 NSString *const kCCPhotoUserKey                 = @"user";
-NSString *const kccPhotoPictureKey              = @"image";
+NSString *const kCCPhotoPictureKey              = @"image";
+
+#pragma mark - Activity Class
+NSString *const kCCActivityClassKey             = @"Activity";
+NSString *const kCCActivityTypeKey              = @"type";
+NSString *const kCCActivityFromUserKey          = @"fromUser";
+NSString *const kCCActivityToUserKey            = @"toUser";
+NSString *const kCCActivityPhotoKey             = @"photo";
+NSString *const kCCActivityTypeLikeKey          = @"like";
+NSString *const kCCActivityTypeDislikeKey       = @"dislike";
+
 
 @end

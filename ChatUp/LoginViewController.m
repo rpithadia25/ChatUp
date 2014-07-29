@@ -157,7 +157,7 @@
         if (succeeded) {
             PFObject *photo = [PFObject objectWithClassName:kCCPhotoClassKey];
             [photo setObject:[PFUser currentUser] forKey:kCCPhotoUserKey];
-            [photo setObject:photoFile forKey:kccPhotoPictureKey];
+            [photo setObject:photoFile forKey:kCCPhotoPictureKey];
             [photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 NSLog(@"Photo saved successfully");
             }];
