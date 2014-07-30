@@ -200,6 +200,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="oe9-Xj-0Cl"/>
                     <connections>
+                        <outlet property="ageLabel" destination="EvQ-wg-1Lw" id="R4y-QX-184"/>
                         <outlet property="ageSlider" destination="Z2C-Bk-RI4" id="srf-B4-9Aw"/>
                         <outlet property="editProfileButton" destination="Uhz-Jd-eTv" id="fKA-Cq-geE"/>
                         <outlet property="logoutButton" destination="QtT-X3-57g" id="aYW-db-60P"/>

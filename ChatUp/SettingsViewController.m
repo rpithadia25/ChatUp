@@ -15,6 +15,7 @@
 @property (strong, nonatomic) IBOutlet UISwitch *singlesOnlySwitch;
 @property (strong, nonatomic) IBOutlet UIButton *logoutButton;
 @property (strong, nonatomic) IBOutlet UIButton *editProfileButton;
+@property (strong, nonatomic) IBOutlet UILabel *ageLabel;
 
 @end
 
@@ -33,6 +34,16 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.ageSlider.value = [[NSUserDefaults standardUserDefaults]integerForKey:kCCAgeMaxKey];
+    self.menSwitch.on = [[NSUserDefaults standardUserDefaults]boolForKey:kCCMenEnabledKey];
+    self.womenSwitch.on = [[NSUserDefaults standardUserDefaults]boolForKey:kCCWomenEnabledKey];
+    self.singlesOnlySwitch.on = [[NSUserDefaults standardUserDefaults]boolForKey:kCCSingleEnabledKey];
+    
+    [self.ageSlider addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
+    [self.menSwitch addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
+    [self.womenSwitch addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
+    [self.singlesOnlySwitch addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
+    self.ageLabel.text = [NSString stringWithFormat:@"%i",(int)self.ageSlider.value];
 }
 
 - (void)didReceiveMemoryWarning
