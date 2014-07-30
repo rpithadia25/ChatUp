@@ -30,6 +30,18 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    PFQuery *query = [PFQuery queryWithClassName:kCCPhotoClassKey];
+    [query whereKey:kCCPhotoUserKey equalTo:[PFUser currentUser]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if ([objects count] > 0 ) {
+            PFObject *photo = objects[0];
+            PFFile *pictureFile = photo[kCCPhotoPictureKey];
+            [pictureFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+                self.profilePictureImageView.image = [UIImage imageWithData:data];
+            }];
+        }
+    }];
+    self.taglineTextView.text = [[PFUser currentUser]objectForKey:kCCUserTagLineKey];
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,6 +63,9 @@
 
 #pragma mark - IBActions
 - (IBAction)saveBarButtonItemPressed:(UIBarButtonItem *)sender {
+    [[PFUser currentUser]setObject:self.taglineTextView.text forKey:kCCUserTagLineKey];
+    [[PFUser currentUser]saveInBackground];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 

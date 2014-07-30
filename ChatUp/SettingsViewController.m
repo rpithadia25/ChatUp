@@ -70,6 +70,20 @@
 - (IBAction)editProfileButtonPressed:(UIButton *)sender {
 }
 
+#pragma mark - Helper
 
+-(void)valueChanged:(id)sender{
+    if (sender == self.ageSlider) {
+        [[NSUserDefaults standardUserDefaults]setInteger:self.ageSlider.value forKey:kCCAgeMaxKey];
+        self.ageLabel.text = [NSString stringWithFormat:@"%i", (int)self.ageSlider.value];
+    }else if (sender == self.menSwitch){
+        [[NSUserDefaults standardUserDefaults]setBool:self.menSwitch.isOn forKey:kCCMenEnabledKey];
+    }else if (sender == self.womenSwitch){
+        [[NSUserDefaults standardUserDefaults]setBool:self.womenSwitch.isOn forKey:kCCWomenEnabledKey];
+    }else if (sender == self.singlesOnlySwitch){
+                [[NSUserDefaults standardUserDefaults]setBool:self.singlesOnlySwitch.isOn forKey:kCCSingleEnabledKey];
+    }
+    [[NSUserDefaults standardUserDefaults]synchronize];
+}
 
 @end
