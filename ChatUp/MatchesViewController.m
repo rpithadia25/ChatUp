@@ -105,6 +105,22 @@
         likedUser = [chatRoom objectForKey:@"user1"];
     }
     cell.textLabel.text = likedUser[@"profile"][@"firstName"];
+    
+    //cell.imageView.image = place holder image
+    cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    
+    PFQuery *queryForPhoto = [[PFQuery alloc]initWithClassName:@"Photo"];
+    [queryForPhoto whereKey:@"user" equalTo:likedUser];
+    [queryForPhoto findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if ([objects count] > 0) {
+            PFObject *photo = objects[0];
+            PFFile *pictureFile = photo[kCCPhotoPictureKey];
+            [pictureFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+                cell.imageView.image = [UIImage imageWithData:data];
+                cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
+            }];
+        }
+    }];
     return cell;
 }
 
