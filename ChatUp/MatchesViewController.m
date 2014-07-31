@@ -11,6 +11,7 @@
 @interface MatchesViewController ()
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSMutableArray *availableChatRooms;
 
 @end
 
@@ -47,5 +48,28 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - Helper Methods
+
+-(void)updateAvailableChatRooms
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"ChatRoom"];
+    [query whereKey:@"user1" equalTo:[PFUser currentUser]];
+    PFQuery *queryInverse = [PFQuery queryWithClassName:@"ChatRoom"];
+    [queryInverse whereKey:@"user2" equalTo:[PFUser currentUser]];
+    
+    PFQuery *combinedQuery = [PFQuery orQueryWithSubqueries:@[query,queryInverse]];
+    [combinedQuery includeKey:@"chat"];
+    [combinedQuery includeKey:@"user1"];
+    [combinedQuery includeKey:@"user2"];
+    [combinedQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            [self.availableChatRooms removeAllObjects];
+            self.availableChatRooms = [objects mutableCopy];
+            [self.tableView reloadData];
+        }
+    }];
+}
+
 
 @end

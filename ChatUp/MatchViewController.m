@@ -15,6 +15,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *currentUserImageView;
 
 @property (strong, nonatomic) IBOutlet UIButton *viewChatsButton;
+
 @property (strong, nonatomic) IBOutlet UIButton *keepSearchingButton;
 
 @end
