@@ -46,6 +46,35 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.delegate = self;
+    
+    self.dataSource = self;
+    
+    [[JSBubbleView appearance] setFont:[UIFont systemFontOfSize:16.0f]];
+    
+    self.messageInputView.textView.placeHolder = @"New Message";
+    
+    [self setBackgroundColor:[UIColor whiteColor]];
+    
+    self.currentUser = [PFUser currentUser];
+    
+    PFUser *testUser1 = self.chatRoom[@"user1"];
+    
+    if ([testUser1.objectId isEqual:self.currentUser.objectId]){
+        
+    self.withUser = self.chatRoom[@"user2"];
+    }
+    
+    else {
+        
+        self.withUser = self.chatRoom[@"user1"];
+        
+    }
+    
+    self.title = self.withUser[@"profile"][@"firstName"];
+    
+    self.initialLoadComplete = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -64,5 +93,14 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+#pragma mark - Table view data source
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.chats count];
+}
+
 
 @end
