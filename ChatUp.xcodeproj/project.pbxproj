@@ -29,6 +29,7 @@
 		BA768B01197E4ADB00D7BA6E /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA768B00197E4ADB00D7BA6E /* ProfileViewController.m */; };
 		BA94A07319885CB800657235 /* CCTestUser.m in Sources */ = {isa = PBXBuildFile; fileRef = BA94A07219885CB800657235 /* CCTestUser.m */; };
 		BA94A075198860EE00657235 /* profilePicture1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA94A074198860EE00657235 /* profilePicture1.jpg */; };
+		BADF306A1989D76A00885AFD /* MatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BADF30691989D76A00885AFD /* MatchViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,8 @@
 		BA94A07119885CB800657235 /* CCTestUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTestUser.h; sourceTree = "<group>"; };
 		BA94A07219885CB800657235 /* CCTestUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTestUser.m; sourceTree = "<group>"; };
 		BA94A074198860EE00657235 /* profilePicture1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = profilePicture1.jpg; sourceTree = "<group>"; };
+		BADF30681989D76A00885AFD /* MatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchViewController.h; sourceTree = "<group>"; };
+		BADF30691989D76A00885AFD /* MatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +168,7 @@
 				BA768AFE197E4ABE00D7BA6E /* Profile */,
 				BA6A5BD91953B0860047C967 /* Login */,
 				BA94A07019885C7600657235 /* CreateParseUser */,
+				BADF30671989D74500885AFD /* Match */,
 				BA6A5BB81953AF2C0047C967 /* Images.xcassets */,
 				BA6A5BA41953AF2C0047C967 /* Supporting Files */,
 			);
@@ -237,6 +241,15 @@
 				BA94A07219885CB800657235 /* CCTestUser.m */,
 			);
 			name = CreateParseUser;
+			sourceTree = "<group>";
+		};
+		BADF30671989D74500885AFD /* Match */ = {
+			isa = PBXGroup;
+			children = (
+				BADF30681989D76A00885AFD /* MatchViewController.h */,
+				BADF30691989D76A00885AFD /* MatchViewController.m */,
+			);
+			name = Match;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,6 +393,7 @@
 				BA6A5BD71953B0660047C967 /* LoginViewController.m in Sources */,
 				BA008162197E4317002AC4E4 /* SettingsViewController.m in Sources */,
 				BA00815B197E17FB002AC4E4 /* HomeViewController.m in Sources */,
+				BADF306A1989D76A00885AFD /* MatchViewController.m in Sources */,
 				BA008156197DE35E002AC4E4 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
