@@ -333,22 +333,22 @@
             <point key="canvasLocation" x="905" y="913"/>
         </scene>
         <!--Chat View Controller-->
-        <scene sceneID="3R6-7v-vTt">
+        <scene sceneID="2c4-iz-jsb">
             <objects>
-                <viewController id="SU9-2r-1Yy" customClass="ChatViewController" sceneMemberID="viewController">
+                <viewController id="ujJ-s6-ZKC" customClass="ChatViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="CZA-co-SLC"/>
-                        <viewControllerLayoutGuide type="bottom" id="bT0-xx-8TQ"/>
+                        <viewControllerLayoutGuide type="top" id="o8h-ok-zre"/>
+                        <viewControllerLayoutGuide type="bottom" id="UgE-52-brU"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="haE-mI-ird">
+                    <view key="view" contentMode="scaleToFill" id="bn0-8Q-c2n">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="z6X-Oh-PLv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rkV-5P-9sd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1305" y="913"/>
+            <point key="canvasLocation" x="1289" y="913"/>
         </scene>
         <!--Edit Profile View Controller-->
         <scene sceneID="18w-8c-dD6">

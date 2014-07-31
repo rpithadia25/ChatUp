@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Rakshit Pithadia. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "JSMessagesViewController.h"
 
-@interface ChatViewController : UIViewController
+@interface ChatViewController : JSMessagesViewController
 
 @end
