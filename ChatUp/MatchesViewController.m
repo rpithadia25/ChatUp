@@ -7,6 +7,7 @@
 //
 
 #import "MatchesViewController.h"
+#import "ChatViewController.h"
 
 @interface MatchesViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -49,6 +50,13 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    ChatViewController *chatVC = segue.destinationViewController;
+    NSIndexPath *indexPath = sender;
+    chatVC.chatRoom = [self.availableChatRooms objectAtIndex:indexPath.row];
 }
 
 /*
@@ -123,5 +131,13 @@
     }];
     return cell;
 }
+
+#pragma mark - UITableView Delegate
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"matchesToChatSegue" sender:indexPath];
+}
+
 
 @end

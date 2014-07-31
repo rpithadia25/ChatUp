@@ -10,9 +10,28 @@
 
 @interface ChatViewController ()
 
+@property (strong, nonatomic) PFUser *withUser;
+
+@property (strong, nonatomic) PFUser *currentUser;
+
+@property (strong, nonatomic) NSTimer *chatsTimer;
+
+@property (nonatomic) BOOL initialLoadComplete;
+
+@property (strong, nonatomic) NSMutableArray *chats;
+
 @end
 
 @implementation ChatViewController
+
+//Lazy initialization
+-(NSMutableArray *)chats
+{
+    if (!_chats){
+        _chats = [[NSMutableArray alloc] init];
+    }
+    return _chats;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
