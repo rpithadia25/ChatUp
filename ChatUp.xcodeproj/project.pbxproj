@@ -30,6 +30,7 @@
 		BA94A07319885CB800657235 /* CCTestUser.m in Sources */ = {isa = PBXBuildFile; fileRef = BA94A07219885CB800657235 /* CCTestUser.m */; };
 		BA94A075198860EE00657235 /* profilePicture1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA94A074198860EE00657235 /* profilePicture1.jpg */; };
 		BADF306A1989D76A00885AFD /* MatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BADF30691989D76A00885AFD /* MatchViewController.m */; };
+		BADF306E1989DA8600885AFD /* MatchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BADF306D1989DA8600885AFD /* MatchesViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,8 @@
 		BA94A074198860EE00657235 /* profilePicture1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = profilePicture1.jpg; sourceTree = "<group>"; };
 		BADF30681989D76A00885AFD /* MatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchViewController.h; sourceTree = "<group>"; };
 		BADF30691989D76A00885AFD /* MatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchViewController.m; sourceTree = "<group>"; };
+		BADF306C1989DA8600885AFD /* MatchesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchesViewController.h; sourceTree = "<group>"; };
+		BADF306D1989DA8600885AFD /* MatchesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchesViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +173,7 @@
 				BA94A07019885C7600657235 /* CreateParseUser */,
 				BADF30671989D74500885AFD /* Match */,
 				BA6A5BB81953AF2C0047C967 /* Images.xcassets */,
+				BADF306B1989DA7100885AFD /* Matches */,
 				BA6A5BA41953AF2C0047C967 /* Supporting Files */,
 			);
 			path = ChatUp;
@@ -250,6 +254,15 @@
 				BADF30691989D76A00885AFD /* MatchViewController.m */,
 			);
 			name = Match;
+			sourceTree = "<group>";
+		};
+		BADF306B1989DA7100885AFD /* Matches */ = {
+			isa = PBXGroup;
+			children = (
+				BADF306C1989DA8600885AFD /* MatchesViewController.h */,
+				BADF306D1989DA8600885AFD /* MatchesViewController.m */,
+			);
+			name = Matches;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -386,6 +399,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA94A07319885CB800657235 /* CCTestUser.m in Sources */,
+				BADF306E1989DA8600885AFD /* MatchesViewController.m in Sources */,
 				BA6A5BAE1953AF2C0047C967 /* AppDelegate.m in Sources */,
 				BA6A5BAA1953AF2C0047C967 /* main.m in Sources */,
 				BA768B01197E4ADB00D7BA6E /* ProfileViewController.m in Sources */,
