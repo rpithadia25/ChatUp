@@ -31,6 +31,7 @@
 		BA94A075198860EE00657235 /* profilePicture1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA94A074198860EE00657235 /* profilePicture1.jpg */; };
 		BADF306A1989D76A00885AFD /* MatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BADF30691989D76A00885AFD /* MatchViewController.m */; };
 		BADF306E1989DA8600885AFD /* MatchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BADF306D1989DA8600885AFD /* MatchesViewController.m */; };
+		BADF30721989DB4300885AFD /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BADF30711989DB4300885AFD /* ChatViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,8 @@
 		BADF30691989D76A00885AFD /* MatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchViewController.m; sourceTree = "<group>"; };
 		BADF306C1989DA8600885AFD /* MatchesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchesViewController.h; sourceTree = "<group>"; };
 		BADF306D1989DA8600885AFD /* MatchesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchesViewController.m; sourceTree = "<group>"; };
+		BADF30701989DB4300885AFD /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		BADF30711989DB4300885AFD /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +177,7 @@
 				BADF30671989D74500885AFD /* Match */,
 				BA6A5BB81953AF2C0047C967 /* Images.xcassets */,
 				BADF306B1989DA7100885AFD /* Matches */,
+				BADF306F1989DB3100885AFD /* Chat */,
 				BA6A5BA41953AF2C0047C967 /* Supporting Files */,
 			);
 			path = ChatUp;
@@ -263,6 +267,16 @@
 				BADF306D1989DA8600885AFD /* MatchesViewController.m */,
 			);
 			name = Matches;
+			sourceTree = "<group>";
+		};
+		BADF306F1989DB3100885AFD /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				BADF30701989DB4300885AFD /* ChatViewController.h */,
+				BADF30711989DB4300885AFD /* ChatViewController.m */,
+			);
+			name = Chat;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -400,6 +414,7 @@
 			files = (
 				BA94A07319885CB800657235 /* CCTestUser.m in Sources */,
 				BADF306E1989DA8600885AFD /* MatchesViewController.m in Sources */,
+				BADF30721989DB4300885AFD /* ChatViewController.m in Sources */,
 				BA6A5BAE1953AF2C0047C967 /* AppDelegate.m in Sources */,
 				BA6A5BAA1953AF2C0047C967 /* main.m in Sources */,
 				BA768B01197E4ADB00D7BA6E /* ProfileViewController.m in Sources */,
