@@ -136,4 +136,38 @@
     }
 }
 
+- (JSBubbleMessageType)messageTypeForRowAtIndexPath:(NSIndexPath *)indexPath
+
+{
+    
+    /* If we are doing the sending return JSBubbleMessageTypeOutgoing
+     
+     else JSBubbleMessageTypeIncoming
+     
+     */
+    
+    PFObject *chat = self.chats[indexPath.row];
+    
+    PFUser *currentUser = [PFUser currentUser];
+    
+    PFUser *testFromUser = chat[@"fromUser"];
+    
+    if ([testFromUser.objectId isEqual:currentUser.objectId])
+        
+    {
+        
+        return JSBubbleMessageTypeOutgoing;
+        
+        ;
+        
+    }
+    
+    else{
+        
+        return JSBubbleMessageTypeIncoming;
+        
+    }
+    
+}
+
 @end
