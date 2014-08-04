@@ -139,35 +139,21 @@
 - (JSBubbleMessageType)messageTypeForRowAtIndexPath:(NSIndexPath *)indexPath
 
 {
-    
     /* If we are doing the sending return JSBubbleMessageTypeOutgoing
      
      else JSBubbleMessageTypeIncoming
      
      */
-    
     PFObject *chat = self.chats[indexPath.row];
-    
     PFUser *currentUser = [PFUser currentUser];
-    
     PFUser *testFromUser = chat[@"fromUser"];
-    
     if ([testFromUser.objectId isEqual:currentUser.objectId])
-        
     {
-        
         return JSBubbleMessageTypeOutgoing;
-        
-        ;
-        
     }
-    
     else{
-        
         return JSBubbleMessageTypeIncoming;
-        
     }
-    
 }
 
 - (UIImageView *)bubbleImageViewWithType:(JSBubbleMessageType)type forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -185,6 +171,45 @@
     else{
         return [JSBubbleImageViewFactory bubbleImageViewForType:type color:[UIColor js_bubbleLightGrayColor]];
     }
+}
+
+//
+//- (JSMessagesViewTimestampPolicy)timestampPolicy
+//
+//{
+//    
+//    return JSMessagesViewTimestampPolicyAll
+//    
+//    ;
+//    
+//}
+//
+//- (JSMessagesViewAvatarPolicy)avatarPolicy
+//
+//{
+//    
+//    /* JSMessagesViewAvatarPolicyNone */
+//    
+//    return JSMessagesViewAvatarPolicyAll;
+//    
+//}
+//
+//- (JSMessagesViewSubtitlePolicy)subtitlePolicy
+//
+//{
+//    
+//    return JSMessagesViewSubtitlePolicyAll;
+//    
+//}
+
+- (JSMessageInputViewStyle)inputViewStyle
+
+{
+    
+    /* change style */
+    
+    return JSMessageInputViewStyleFlat;
+    
 }
 
 
