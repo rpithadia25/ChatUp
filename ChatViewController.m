@@ -75,6 +75,9 @@
     self.title = self.withUser[@"profile"][@"firstName"];
     
     self.initialLoadComplete = NO;
+    
+    [self checkForNewChats];
+    self.chatsTimer = [NSTimer scheduledTimerWithTimeInterval:15 target:self selector:@selector(checkForNewChats) userInfo:nil repeats:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -94,6 +97,11 @@
 }
 */
 
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [self.chatsTimer invalidate];
+    self.chatsTimer = nil;
+}
 
 #pragma mark - Table view data source
 
