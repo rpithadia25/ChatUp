@@ -163,11 +163,9 @@
     PFUser *currentUser = [PFUser currentUser];
     PFUser *testFromUser = chat[@"fromUser"];
     if ([testFromUser.objectId isEqual:currentUser.objectId])
-        
     {
         return [JSBubbleImageViewFactory bubbleImageViewForType:type color:[UIColor js_bubbleGreenColor]];
     }
-    
     else{
         return [JSBubbleImageViewFactory bubbleImageViewForType:type color:[UIColor js_bubbleLightGrayColor]];
     }
@@ -210,6 +208,69 @@
     
     return JSMessageInputViewStyleFlat;
     
+}
+
+#pragma mark - Messages View delegate optional
+
+-(void)configureCell:(JSBubbleMessageCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    if ([cell messageType] == JSBubbleMessageTypeOutgoing) {
+        cell.bubbleView.textView.textColor = [UIColor whiteColor];
+    }
+}
+
+- (BOOL)shouldPreventScrollToBottomWhileUserScrolling
+
+{
+    return YES;
+}
+
+#pragma mark - Messages view data source: REQUIRED
+
+- (NSString *)textForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    PFObject *chat = self.chats[indexPath.row];
+    NSString *message = chat[@"text"];
+    return message;
+}
+
+- (NSDate *)timestampForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return nil;
+}
+
+- (UIImageView *)avatarImageViewForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return nil;
+}
+
+- (NSString *)subtitleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return nil;
+}
+
+#pragma mark - Helper Methods
+
+-(void)checkForNewChats
+{
+    int oldChatCount = [self.chats count];
+    PFQuery *queryForChats = [PFQuery queryWithClassName:@"Chat"];
+    [queryForChats whereKey:@"chatroom" equalTo:self.chatRoom];
+    [queryForChats orderByAscending:@"createdAt"];
+    [queryForChats findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            if (self.initialLoadComplete == NO || oldChatCount != [objects count]){
+                self.chats = [objects mutableCopy];
+                if (self.initialLoadComplete == YES){
+                    [JSMessageSoundEffect playMessageReceivedSound];
+                }
+                [self.tableView reloadData];
+                self.initialLoadComplete = YES;
+                [JSMessageSoundEffect playMessageReceivedSound];
+                [self scrollToBottomAnimated:YES];
+            }
+        }
+    }];
 }
 
 
