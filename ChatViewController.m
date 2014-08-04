@@ -170,4 +170,22 @@
     
 }
 
+- (UIImageView *)bubbleImageViewWithType:(JSBubbleMessageType)type forRowAtIndexPath:(NSIndexPath *)indexPath
+
+{
+    PFObject *chat = self.chats[indexPath.row];
+    PFUser *currentUser = [PFUser currentUser];
+    PFUser *testFromUser = chat[@"fromUser"];
+    if ([testFromUser.objectId isEqual:currentUser.objectId])
+        
+    {
+        return [JSBubbleImageViewFactory bubbleImageViewForType:type color:[UIColor js_bubbleGreenColor]];
+    }
+    
+    else{
+        return [JSBubbleImageViewFactory bubbleImageViewForType:type color:[UIColor js_bubbleLightGrayColor]];
+    }
+}
+
+
 @end
